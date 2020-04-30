@@ -2,4 +2,4 @@
 
 Aqui você pode conferir o visual do jogo :)
 
-![jogo da memoria](img-md/jogo-da-memoria.jpg)
+![jogo da memoria](img/img-md/jogo-da-memoria.jpg)
