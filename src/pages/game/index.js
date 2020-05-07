@@ -1,20 +1,20 @@
-const $root = document.querySelector("#root"); //pegando a referencia do root
-const $memoryCardFront = document.createElement("article");
+//arquivo responsavel por inserir os componentes na tela
+const $root = document.querySelector("#root");
+
+const $cardsWrapper = createCardsWrapper();//section c/ class
+const $memoryCard = createMemoryCard();//article c/ class
+const $memoryCardFront = createMemoryCardFront();//article c/ classe
+
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
 
 
-const $iconBug = `
-    <img 
-        src='img/icon-bug.png' 
-        alt='icone de um inseto' 
-        class='icon'>
-`;
+$root.insertAdjacentElement("beforeend", $cardsWrapper); //add section ao root
 
 
-$root.insertBefore($memoryCardFront, null);
-$memoryCardFront.classList.add("memory-card");
-$memoryCardFront.classList.add("-front");
-$memoryCardFront.insertAdjacentHTML("afterbegin", $iconBug);
-
-for (var i = 0; i < 10; i++){
-    createMemoryCard();
-}
