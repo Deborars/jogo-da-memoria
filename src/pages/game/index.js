@@ -2,17 +2,27 @@
 const $root = document.querySelector("#root");
 
 const $cardsWrapper = createCardsWrapper();//section c/ class
-const $memoryCard = createMemoryCard();//article c/ class
-const $memoryCardFront = createMemoryCardFront();//article c/ classe
+
+const languageJS= {
+    nameClass: "-front",
+    src: "img/icon-js.png",
+    alt: "Icone da linguagem javascript"
+}
+
+const $memoryCard = createMemoryCard(languageJS);
+ 
+const $memoryCardFront = createMemoryCard(
+    "-front",
+    "img/icon-c.png",
+    "Icone do livro em C"
+)
+
+
+
 
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+
 
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper); //add section ao root
