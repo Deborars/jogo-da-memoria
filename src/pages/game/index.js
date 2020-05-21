@@ -3,27 +3,33 @@ const $root = document.querySelector("#root");
 
 const $cardsWrapper = createCardsWrapper();//section c/ class
 
-const languageJS= {
+const $memoryCardJS = createMemoryCard( {/*passando um json como argumento*/ 
     nameClass: "-front",
     src: "img/icon-js.png",
-    alt: "Icone da linguagem javascript"
-}
+    alt: "Icone da linguagem Javascript"
+});
 
-const $memoryCard = createMemoryCard(languageJS);
+const $memoryCardC = createMemoryCard( {
+    nameClass: "-front",
+    src: "img/icon-c.png",
+    alt: "Icone da linguagem C"
+});
  
-const $memoryCardFront = createMemoryCard(
-    "-front",
-    "img/icon-c.png",
-    "Icone do livro em C"
-)
+
+const $memoryCardWoman = createMemoryCard( {
+    nameClass: "-front",
+    src: "img/icon-woman.png",
+    alt: "Icone da linguagem C"
+});
 
 
 
-
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-
-
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardWoman);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardWoman);
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper); //add section ao root
 
