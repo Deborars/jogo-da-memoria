@@ -3,7 +3,7 @@ const $root = document.querySelector("#root");
 
 const $cardsWrapper = createCardsWrapper();//section c/ class
 
-const $memoryCardJS = createMemoryCard( {/*passando um json como argumento*/ 
+const $memoryCardJS = createMemoryCard( {/*passando um objeto como argumento*/ 
     nameClass: "-front",
     src: "img/icon-js.png",
     alt: "Icone da linguagem Javascript"
@@ -14,7 +14,6 @@ const $memoryCardC = createMemoryCard( {
     src: "img/icon-c.png",
     alt: "Icone da linguagem C"
 });
- 
 
 const $memoryCardWoman = createMemoryCard( {
     nameClass: "-front",
