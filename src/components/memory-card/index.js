@@ -4,7 +4,8 @@
 /*card recebe o argumento em JSON e acessa suas propriedades com o card.*/
 
 
-const createMemoryCard = card => {
+const createMemory = () => {
+    console.log("a função foi executada")
     const $head = document.querySelector("head");
     const $style = document.createElement("style");/*cria o elemento*/
     $style.textContent = `
@@ -21,7 +22,7 @@ const createMemoryCard = card => {
         cursor: pointer;
     }
     .memory-card.-front{
-        background-color: #fff;
+        background-color: #2a2a2a;
     }
     .memory-card.-front::before{
         content: "";
@@ -43,15 +44,14 @@ const createMemoryCard = card => {
 `;
 $head.insertBefore($style, null);/*insere o style dentro dele*/ 
 
-const {src, alt, nameClass} = card;/*destructuring object, cria constantes a partir do card*/ 
-return`
-<article class="memory-card ${nameClass}">
+
+return ({src, alt, nameClass})=>`
+    <article class="memory-card ${nameClass}">
         <img 
-                src="${src}"
-                alt="${alt}" 
-                class='icon' onclick="handleClick()">
-        </article>
-`;
+            src="${src}"
+            alt="${alt}" 
+            class='icon' onclick="handleClick()">
+    </article>`;
 };
 
 

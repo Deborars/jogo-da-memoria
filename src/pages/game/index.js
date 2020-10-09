@@ -3,6 +3,8 @@ const $root = document.querySelector("#root");
 
 const $cardsWrapper = createCardsWrapper();//section c/ class
 
+const createMemoryCard = createMemory();/*aqui voce executa a função e atribui seu retorno a variavel*/ 
+
 const $memoryCardJS = createMemoryCard( {/*passando um objeto como argumento*/ 
     nameClass: "-front",
     src: "img/icon-js.png",
