@@ -1,5 +1,6 @@
 //gera a section com o DOM para tornar-se um element
 //é gerado um objeto element para este arquivo
+let qtdMemoryCard=0;//variavel global, 
 function createCardsWrapper(){
     const $cardsWrapper = document.createElement("section")
     $cardsWrapper.classList.add("cards-wrapper");
@@ -19,6 +20,9 @@ function createCardsWrapper(){
     }`;/*cria o conteudo para a tag style*/
     
     $head.insertBefore($style, null);
+
+    $cardsWrapper.addEventListener("click", () =>{
+        qtdMemoryCard=$cardsWrapper.querySelectorAll(".memory-card.-active").length;})
 
     return $cardsWrapper;
 }

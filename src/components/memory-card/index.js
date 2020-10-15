@@ -27,7 +27,7 @@ const createMemory = () => {
         margin-bottom:10px;
         }
         .memory-card .card.-front{
-            background-color: #fff000;
+            background-color: #fff900;
             display:none;
         }
         .memory-card.-active .card{
@@ -56,6 +56,7 @@ const createMemory = () => {
 $head.insertBefore($style, null);/*insere o style dentro dele*/ 
 
 
+
 return ({src, alt})=>`
     <div class="memory-card" onclick="handleClick(this)">
             <article class="card -front">
@@ -74,11 +75,20 @@ return ({src, alt})=>`
     `;
 }
 
-const handleClick = function($this){//não podemos usar a palavra this (keyword)
-    $this.classList.toggle("-active");
+function handleClick($this){
+    if(qtdMemoryCard < 2){//array 0, 1
+        $this.classList.toggle("-active");
+    }
+    if(qtdMemoryCard==1){
+        setTimeout((item)=>{
+            const $activeMemoryCards=document.querySelectorAll(".memory-card.-active");//ele peg um nodelist
+
+            $activeMemoryCards.forEach(function(item){
+                item.classList.remove("-active");
+            })
+            qtdMemoryCard=0;
+        },1500);
+    }
+    
+    
 }
-
-
-
-
-
