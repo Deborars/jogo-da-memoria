@@ -3,7 +3,7 @@
 //a função omite eles, porem o resultado é como se usassemos;
 /*card recebe o argumento em JSON e acessa suas propriedades com o card.*/
 
-
+let score=0;
 const createMemory = () => {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");/*cria o elemento*/
@@ -13,6 +13,7 @@ const createMemory = () => {
             width: 155px;
             height: 155px;
         }
+
         .memory-card .card{
         width:100%;
         height:100%;
@@ -26,16 +27,24 @@ const createMemory = () => {
         position absolute;
         margin-bottom:10px;
         }
+
         .memory-card .card.-front{
             background-color: #fff900;
             display:none;
         }
-        .memory-card.-active .card{
+
+        .memory-card.-active .card,
+        .memory-card.-score .card
+        {
             display:none;
         }
-        .memory-card.-active .-front{
+
+        .memory-card.-active .-front,
+        .memory-card.-score .-front
+        {
             display:flex;
         }
+
         .memory-card .card.-front::before{
             content: "";
             width: 95px;
@@ -44,10 +53,12 @@ const createMemory = () => {
             border-radius: 50%;
             position: absolute;   
         }
+
         .memory-card .card > .icon{
             width: 100px;
             height: 100px;
         }
+
         .memory-card .card.-front > .icon{
             position: absolute;
             transform: translateY(-10px);
@@ -75,20 +86,34 @@ return ({src, alt})=>`
     `;
 }
 
-function handleClick($this){
-    if(qtdMemoryCard < 2){//array 0, 1
-        $this.classList.toggle("-active");
-    }
-    if(qtdMemoryCard==1){
-        setTimeout((item)=>{
-            const $activeMemoryCards=document.querySelectorAll(".memory-card.-active");//ele peg um nodelist
+function handleClick($component){//$component é o this
+    if(!$component.classList.contains("-active")){//evita de ficar virando e desvirando a carta
+        if(qtdMemoryCard < 2){//array 0, 1
+            $component.classList.toggle("-active");
+        }
+        if(qtdMemoryCard==1){
+            const $memoryCards=document.querySelectorAll(".memory-card.-active");
+            if(
+            $memoryCards[0].querySelector(".-front .icon").getAttribute("src")===
+            $memoryCards[1].querySelector(".-front .icon").getAttribute("src")){
+                $memoryCards.forEach(($memoryCard)=>{
+                    $memoryCard.classList.add("-score");
+                    $memoryCard.classList.remove("-active");
+                })
+                score++;
+                console.log("Score value", score);
+            }else{
+                setTimeout(( )=>{
+                    const $activeMemoryCards=document.querySelectorAll(".memory-card.-active");//ele peg um nodelist
 
-            $activeMemoryCards.forEach(function(item){
-                item.classList.remove("-active");
-            })
-            qtdMemoryCard=0;
-        },1500);
-    }
-    
-    
-}
+                    $activeMemoryCards.forEach(function(item){
+                        item.classList.remove("-active");
+                    })
+                    qtdMemoryCard=0;
+                },1500);
+            }
+            }
+        }
+        
+        
+        }
