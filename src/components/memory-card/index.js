@@ -92,11 +92,12 @@ function handleClick($component){//$component é o this
             $component.classList.toggle("-active");
         }
         if(qtdMemoryCard==1){
-            const $memoryCards=document.querySelectorAll(".memory-card.-active");
+            const $activeMemoryCards=document.querySelectorAll(".memory-card.-active");//ele peg um nodelist
+            
             if(
-            $memoryCards[0].querySelector(".-front .icon").getAttribute("src")===
-            $memoryCards[1].querySelector(".-front .icon").getAttribute("src")){
-                $memoryCards.forEach(($memoryCard)=>{
+            $activeMemoryCards[0].querySelector(".-front .icon").getAttribute("src")===
+            $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")){
+                $activeMemoryCards.forEach(($memoryCard)=>{
                     $memoryCard.classList.add("-score");
                     $memoryCard.classList.remove("-active");
                 })
@@ -104,8 +105,6 @@ function handleClick($component){//$component é o this
                 console.log("Score value", score);
             }else{
                 setTimeout(( )=>{
-                    const $activeMemoryCards=document.querySelectorAll(".memory-card.-active");//ele peg um nodelist
-
                     $activeMemoryCards.forEach(function(item){
                         item.classList.remove("-active");
                     })
