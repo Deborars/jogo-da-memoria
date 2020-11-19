@@ -116,3 +116,4 @@ function handleClick($component){//$component é o this
         
         
         }
+
