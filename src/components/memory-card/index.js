@@ -88,9 +88,7 @@ return ({src, alt})=>`
 
 function handleClick($component){//$component é o this
     if(!$component.classList.contains("-active")){//evita de ficar virando e desvirando a carta
-        if(qtdMemoryCard < 2){//array 0, 1
-            $component.classList.toggle("-active");
-        }
+        activeMemoryCard($component)
         if(qtdMemoryCard==1){
             const $activeMemoryCards=document.querySelectorAll(".memory-card.-active");//ele peg um nodelist
             
@@ -103,7 +101,8 @@ function handleClick($component){//$component é o this
                 })
                 score++;
                 console.log("Score value", score);
-            }else{
+            }
+            else{
                 setTimeout(( )=>{
                     $activeMemoryCards.forEach(function(item){
                         item.classList.remove("-active");
@@ -111,9 +110,13 @@ function handleClick($component){//$component é o this
                     qtdMemoryCard=0;
                 },1500);
             }
-            }
         }
-        
-        
-        }
+    }
+}
+
+function activeMemoryCard($component){
+    if(qtdMemoryCard < 2){//array 0, 1
+        $component.classList.add("-active");
+    }
+}
 
